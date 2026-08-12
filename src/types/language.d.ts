@@ -577,6 +577,7 @@ export interface LangPair {
   'WebAppAddToAttachmentAdd': undefined;
   'AccActionDownload': undefined;
   'Forward': undefined;
+  'RepeatMessage': undefined;
   'MediaZoomOut': undefined;
   'MediaZoomIn': undefined;
   'PeerInfoReportProfileVideo': undefined;

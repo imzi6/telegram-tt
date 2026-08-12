@@ -2914,6 +2914,21 @@ addActionHandler('forwardToSavedMessages', (global, actions, payload): ActionRet
   actions.forwardMessages({ isSilent: true, scheduledAt, tabId });
 });
 
+addActionHandler('repeatMessage', (global, actions, payload): ActionReturnType => {
+  const { chatId, topicId, messageIds, tabId = getCurrentTabId() } = payload;
+  global = updateTabState(global, {
+    forwardMessages: {
+      fromChatId: chatId,
+      messageIds,
+      toChatId: chatId,
+      toThreadId: topicId,
+    },
+  }, tabId);
+  setGlobal(global);
+
+  actions.forwardMessages({ isSilent: true, tabId });
+});
+
 interface ForwardToChatOptions {
   global: GlobalState;
   fromChat: ApiChat;

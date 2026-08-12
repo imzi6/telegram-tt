@@ -2115,6 +2115,11 @@ export interface ActionPayloads {
   forwardToSavedMessages: {
     scheduledAt?: number;
   } & WithTabId;
+  repeatMessage: {
+    chatId: string;
+    topicId?: ThreadId;
+    messageIds: number[];
+  } & WithTabId;
   forwardStory: {
     toChatId: string;
   } & WithTabId;

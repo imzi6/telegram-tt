@@ -657,6 +657,7 @@
 "WebAppAddToAttachmentAdd" = "Add";
 "AccActionDownload" = "Download";
 "Forward" = "Forward";
+"RepeatMessage" = "Repeat";
 "ForwardForStars" = "Forward for {price}";
 "MediaZoomOut" = "Zoom Out";
 "MediaZoomIn" = "Zoom In";

@@ -115,6 +115,7 @@ type OwnProps = {
   onPin?: NoneToVoidFunction;
   onUnpin?: NoneToVoidFunction;
   onForward?: NoneToVoidFunction;
+  onRepeat?: NoneToVoidFunction;
   onDelete?: NoneToVoidFunction;
   onFaveSticker?: NoneToVoidFunction;
   onReport?: NoneToVoidFunction;
@@ -213,6 +214,7 @@ const MessageContextMenu: FC<OwnProps> = ({
   onPin,
   onUnpin,
   onForward,
+  onRepeat,
   onDelete,
   onFaveSticker,
   onReport,
@@ -526,6 +528,7 @@ const MessageContextMenu: FC<OwnProps> = ({
           </MenuItem>
         )}
         {canForward && <MenuItem icon="forward" onClick={onForward}>{oldLang('Forward')}</MenuItem>}
+        {canForward && <MenuItem icon="loop" onClick={onRepeat}>{oldLang('RepeatMessage')}</MenuItem>}
         {canSelect && <MenuItem icon="select" onClick={onSelect}>{oldLang('Common.Select')}</MenuItem>}
         {canReport && <MenuItem icon="flag" onClick={onReport}>{oldLang('lng_context_report_msg')}</MenuItem>}
         {canDelete && <MenuItem destructive icon="delete" onClick={onDelete}>{oldLang('Delete')}</MenuItem>}

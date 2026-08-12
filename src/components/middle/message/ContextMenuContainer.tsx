@@ -255,6 +255,7 @@ const ContextMenuContainer: FC<OwnProps & StateProps> = ({
     pinMessage,
     openForwardMenu,
     openReplyMenu,
+    repeatMessage,
     faveSticker,
     unfaveSticker,
     toggleMessageSelection,
@@ -533,6 +534,16 @@ const ContextMenuContainer: FC<OwnProps & StateProps> = ({
     }
   });
 
+  const handleRepeat = useLastCallback(() => {
+    closeMenu();
+    const messageIds = album?.messages ? album.messages.map(({ id }) => id) : [message.id];
+    repeatMessage({
+      chatId: message.chatId,
+      topicId: threadId !== MAIN_THREAD_ID ? threadId : undefined,
+      messageIds,
+    });
+  });
+
   const handleFaveSticker = useLastCallback(() => {
     closeMenu();
     faveSticker({ sticker: message.content.sticker! });
@@ -793,6 +804,7 @@ const ContextMenuContainer: FC<OwnProps & StateProps> = ({
         onPin={handlePin}
         onUnpin={handleUnpin}
         onForward={handleForward}
+        onRepeat={handleRepeat}
         onDelete={handleDelete}
         onReport={handleReport}
         onFaveSticker={handleFaveSticker}
